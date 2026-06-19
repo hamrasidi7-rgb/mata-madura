@@ -48,10 +48,12 @@
             touchX = null;
         }
     "
+    class="aspirasi-section"
     style="background:#0f0d0b; padding:16px;">
 
     {{-- Card glassmorphism --}}
-    <div style="border:1px solid rgba(255,255,255,0.13); border-radius:18px;
+    <div class="aspirasi-card"
+         style="border:1px solid rgba(255,255,255,0.13); border-radius:18px;
                 background:rgba(255,255,255,0.07); backdrop-filter:blur(14px);
                 -webkit-backdrop-filter:blur(14px);
                 box-shadow:0 4px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.09);
@@ -59,7 +61,7 @@
                 max-width:680px; margin:0 auto;">
 
         {{-- Baris 1: Label LIVE --}}
-        <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px; flex-wrap:nowrap;">
+        <div class="aspirasi-label" style="display:flex; align-items:center; gap:8px; margin-bottom:10px; flex-wrap:nowrap;">
             <span style="width:8px; height:8px; border-radius:50%; background:#ef4444; flex:0 0 8px;
                          box-shadow:0 0 0 3px rgba(239,68,68,0.25);
                          animation:pulse-dot 1.6s ease-in-out infinite;"></span>
@@ -71,8 +73,8 @@
                          color:rgba(255,255,255,0.5); white-space:nowrap;">ASPIRASI WARGA</span>
         </div>
 
-        {{-- Baris 2: Slides wrapper — height 130px (mobile 360-480px) --}}
-        <div style="position:relative; height:130px; overflow:hidden; margin-bottom:10px;">
+        {{-- Baris 2: Slides wrapper — height 130px (mobile) / 150px (desktop via CSS) --}}
+        <div class="aspirasi-slides" style="position:relative; height:130px; overflow:hidden; margin-bottom:10px;">
             @foreach ($slides as $i => $group)
             <div x-show="current === {{ $i }}"
                  :style="fading ? 'opacity:0' : 'opacity:1'"
@@ -87,12 +89,14 @@
                                  box-shadow:0 0 5px {{ $dot[$item->color] ?? '#9ca3af' }}88;">
                     </span>
                     <div style="flex:1; min-width:0;">
-                        <div style="font-family:'Inter',sans-serif; font-size:13px; font-weight:600;
+                        <div class="aspirasi-title"
+                             style="font-family:'Inter',sans-serif; font-size:13px; font-weight:600;
                                     color:#f5f0e8; line-height:1.3;
                                     overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
                             {{ $item->title }}
                         </div>
-                        <div style="font-family:'Inter',sans-serif; font-size:10.5px;
+                        <div class="aspirasi-meta"
+                             style="font-family:'Inter',sans-serif; font-size:10.5px;
                                     color:rgba(255,255,255,0.38); margin-top:2px;
                                     overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
                             📍 {{ $item->location }} · {{ $item->time_ago }}
@@ -107,7 +111,8 @@
         {{-- Baris 3: Footer — di flow normal, tidak absolute --}}
         <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;
                     flex-wrap:nowrap;">
-            <div style="font-family:'Inter',sans-serif; font-size:10px;
+            <div class="aspirasi-ai-text"
+                 style="font-family:'Inter',sans-serif; font-size:10px;
                         color:rgba(255,255,255,0.38); flex:1; min-width:0;
                         overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
                 🤖 AI menganalisis
@@ -142,6 +147,17 @@
 @keyframes pulse-dot {
     0%, 100% { opacity:1; box-shadow:0 0 0 3px rgba(239,68,68,0.25); }
     50%       { opacity:0.7; box-shadow:0 0 0 5px rgba(239,68,68,0.10); }
+}
+
+/* ── Desktop ─────────────────────────────────────────── */
+@media (min-width: 768px) {
+    .aspirasi-section   { padding: 24px 32px !important; }
+    .aspirasi-card      { padding: 20px 24px !important; max-width: 900px !important; }
+    .aspirasi-label     { font-size: 11px !important; margin-bottom: 14px !important; }
+    .aspirasi-slides    { height: 150px !important; gap: 10px !important; margin-bottom: 14px !important; }
+    .aspirasi-title     { font-size: 15px !important; }
+    .aspirasi-meta      { font-size: 11.5px !important; }
+    .aspirasi-ai-text   { font-size: 11px !important; }
 }
 </style>
 @endif
