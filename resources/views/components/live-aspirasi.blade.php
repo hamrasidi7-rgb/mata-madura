@@ -48,18 +48,18 @@
             touchX = null;
         }
     "
-    style="background:#0f0d0b; padding:18px 16px 20px;">
+    style="background:#0f0d0b; padding:16px;">
 
     {{-- Card glassmorphism --}}
     <div style="border:1px solid rgba(255,255,255,0.13); border-radius:18px;
                 background:rgba(255,255,255,0.07); backdrop-filter:blur(14px);
                 -webkit-backdrop-filter:blur(14px);
                 box-shadow:0 4px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.09);
-                padding:16px 18px 14px;
+                padding:16px;
                 max-width:680px; margin:0 auto;">
 
         {{-- Baris 1: Label LIVE --}}
-        <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px; flex-wrap:nowrap;">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px; flex-wrap:nowrap;">
             <span style="width:8px; height:8px; border-radius:50%; background:#ef4444; flex:0 0 8px;
                          box-shadow:0 0 0 3px rgba(239,68,68,0.25);
                          animation:pulse-dot 1.6s ease-in-out infinite;"></span>
@@ -71,14 +71,14 @@
                          color:rgba(255,255,255,0.5); white-space:nowrap;">ASPIRASI WARGA</span>
         </div>
 
-        {{-- Baris 2: Slides wrapper — tinggi tetap agar tidak tumpang tindih --}}
-        <div style="position:relative; height:118px; overflow:hidden; margin-bottom:14px;">
+        {{-- Baris 2: Slides wrapper — height 130px (mobile 360-480px) --}}
+        <div style="position:relative; height:130px; overflow:hidden; margin-bottom:10px;">
             @foreach ($slides as $i => $group)
             <div x-show="current === {{ $i }}"
                  :style="fading ? 'opacity:0' : 'opacity:1'"
                  style="position:absolute; inset:0;
                         transition:opacity 0.24s ease;
-                        display:flex; flex-direction:column; gap:9px;">
+                        display:flex; flex-direction:column; gap:8px;">
                 @foreach ($group as $item)
                 <div style="display:flex; align-items:flex-start; gap:9px; min-width:0;">
                     <span style="width:7px; height:7px; border-radius:50%; flex:0 0 7px;
