@@ -19,11 +19,11 @@
 
     <article class="px-[22px] pt-[26px] pb-10">
         <div class="flex items-center gap-2.5 mb-4">
-            <span class="block w-6 h-0.5 bg-accent"></span>
-            <span class="text-[11px] tracking-widest uppercase font-bold text-accent">{{ $article->category->name }}</span>
+            <span class="block w-6 h-0.5 bg-[#b21f24]"></span>
+            <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#b21f24;">{{ $article->category->name }}</span>
         </div>
 
-        <h1 class="font-serif text-[30px] font-semibold leading-tight tracking-tight text-pretty mb-4">
+        <h1 style="font-family:'Fraunces',serif; font-size:30px; font-weight:600; line-height:1.12; letter-spacing:-0.02em; color:#14110f; text-wrap:pretty; margin-bottom:1rem;">
             {{ $article->title }}
         </h1>
 

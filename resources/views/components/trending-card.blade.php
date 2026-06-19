@@ -17,12 +17,14 @@
         </span>
     </div>
     <div class="px-3.5 pt-3 pb-4">
-        <div class="text-[10px] tracking-wider uppercase font-extrabold text-accent mb-[7px]">
+        <div style="font-family:'Inter',sans-serif; font-size:10px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:#b21f24; margin-bottom:7px;">
             {{ $article->category->name }}
         </div>
-        <h3 class="font-serif text-[16.5px] font-semibold leading-tight tracking-tight text-ink-2 text-pretty mb-2.5">
+        <h3 style="font-family:'Fraunces',serif; font-size:16.5px; font-weight:600; line-height:1.2; letter-spacing:-0.01em; color:#14110f; margin:0 0 10px; text-wrap:pretty;">
             {{ $article->title }}
         </h3>
-        <div class="text-[11px] text-muted">{{ $article->meta }}</div>
+        <div style="font-family:'Inter',sans-serif; font-size:11px; color:#9a9183;">
+            {{ $article->meta }}
+        </div>
     </div>
 </a>

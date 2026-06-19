@@ -21,16 +21,70 @@
     --max-width-app: 1200px;
 }
 
+/* ── Section labels ──────────────────────────────────────────── */
+.section-eyebrow {
+    margin-bottom: 14px;
+}
+
+.section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #1a1816;
+}
+
+/* ── Article body ────────────────────────────────────────────── */
 .article-body p {
     @apply text-[16px] leading-[1.72] text-[#2a2620] mb-5;
 }
 
+/* Drop cap — huruf pertama paragraf pertama */
+.article-body > p:first-of-type::first-letter {
+    font-family: 'Fraunces', serif;
+    font-size: 3.5em;
+    font-weight: 600;
+    color: #b21f24;
+    float: left;
+    line-height: 0.85;
+    margin: 0.05em 0.12em 0 0;
+}
+
+.article-body h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #14110f;
+    margin: 1.6em 0 0.6em;
+    line-height: 1.2;
+}
+
 .article-body blockquote {
-    @apply my-7 pl-5 border-l-[3px] border-accent;
+    @apply my-7 pl-5;
+    border-left: 3px solid #b21f24;
 }
 
 .article-body blockquote p {
-    @apply font-serif italic text-[20px] leading-snug text-ink mb-0;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.4;
+    color: #1a1816;
+    margin-bottom: 0;
+}
+
+.article-body cite {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #c96442;
+    font-style: normal;
+    display: block;
+    margin-top: 6px;
 }
 
 .no-scrollbar::-webkit-scrollbar { display: none; }

@@ -5,30 +5,43 @@
 @props(['article', 'size' => 'lg'])
 
 @php
-    $titleClass = $size === 'lg'
-        ? 'text-[30px] leading-[1.06]'
-        : 'text-[21px] leading-[1.15]';
+    $isLg = $size === 'lg';
 @endphp
 
 <a href="{{ route('article.show', $article) }}" class="block group">
-    <div class="w-full aspect-[16/10] {{ $size === 'lg' ? '' : 'rounded-xl' }} overflow-hidden bg-cream mb-4">
+    <div class="w-full aspect-[16/10] {{ $isLg ? '' : 'rounded-xl' }} overflow-hidden bg-cream mb-4">
         @if ($article->image_path)
             <img src="{{ asset($article->image_path) }}" alt="{{ $article->title }}"
                  class="w-full h-full object-cover" loading="lazy">
         @endif
     </div>
-    <div class="{{ $size === 'lg' ? 'px-[22px]' : '' }}">
-        <div class="text-[11px] tracking-wider uppercase font-extrabold text-accent mb-2.5">
+    <div class="{{ $isLg ? 'px-[22px]' : '' }}">
+        {{-- Kicker / kategori --}}
+        <div style="font-family:'Inter',sans-serif; font-size:11px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; color:#b21f24; margin-bottom:10px;">
             {{ $article->category->name }}
         </div>
-        <h2 class="font-serif {{ $titleClass }} font-semibold tracking-tight text-ink-2 text-pretty mb-3">
-            {{ $article->title }}
-        </h2>
+
+        {{-- Judul --}}
+        @if ($isLg)
+            <h2 style="font-family:'Fraunces',serif; font-size:30px; font-weight:600; line-height:1.06; letter-spacing:-0.02em; color:#14110f; margin:0 0 12px; text-wrap:pretty;">
+                {{ $article->title }}
+            </h2>
+        @else
+            <h2 style="font-family:'Fraunces',serif; font-size:21px; font-weight:600; line-height:1.15; letter-spacing:-0.015em; color:#14110f; margin:0 0 10px; text-wrap:pretty;">
+                {{ $article->title }}
+            </h2>
+        @endif
+
+        {{-- Deck --}}
         @if ($article->deck)
-            <p class="font-serif text-[16px] leading-snug text-[#6b6358] text-pretty mb-3 line-clamp-2">
+            <p style="font-family:'Fraunces',serif; font-size:16px; line-height:1.45; color:#6b6358; margin:0 0 12px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;">
                 {{ $article->deck }}
             </p>
         @endif
-        <div class="text-[12.5px] text-muted">{{ $article->meta }}</div>
+
+        {{-- Meta --}}
+        <div style="font-family:'Inter',sans-serif; font-size:{{ $isLg ? '12.5' : '11.5' }}px; color:#9a9183;">
+            {{ $article->meta }}
+        </div>
     </div>
 </a>

@@ -13,12 +13,14 @@
         @endif
     </div>
     <div class="flex-1 min-w-0 flex flex-col justify-center">
-        <div class="text-[10px] tracking-wider uppercase font-extrabold text-accent mb-[7px]">
+        <div style="font-family:'Inter',sans-serif; font-size:10px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:#b21f24; margin-bottom:7px;">
             {{ $article->category->name }}
         </div>
-        <h3 class="font-serif text-[17px] font-semibold leading-tight tracking-tight text-ink-2 text-pretty mb-2">
+        <h3 style="font-family:'Fraunces',serif; font-size:17px; font-weight:600; line-height:1.2; letter-spacing:-0.01em; color:#14110f; margin:0 0 8px; text-wrap:pretty;">
             {{ $article->title }}
         </h3>
-        <div class="text-[11.5px] text-muted">{{ $article->meta }}</div>
+        <div style="font-family:'Inter',sans-serif; font-size:11.5px; color:#9a9183;">
+            {{ $article->meta }}
+        </div>
     </div>
 </a>
