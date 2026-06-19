@@ -22,6 +22,10 @@
                class="px-3 py-2 rounded-lg font-semibold {{ request()->routeIs('admin.articles.*') ? 'bg-accent/10 text-accent' : 'text-ink hover:bg-cream' }}">
                 Berita
             </a>
+            <a href="{{ route('admin.categories.index') }}"
+               class="px-3 py-2 rounded-lg font-semibold {{ request()->routeIs('admin.categories.*') ? 'bg-accent/10 text-accent' : 'text-ink hover:bg-cream' }}">
+                Kategori
+            </a>
             <a href="{{ route('admin.ai-features.index') }}"
                class="px-3 py-2 rounded-lg font-semibold {{ request()->routeIs('admin.ai-features.*') ? 'bg-accent/10 text-accent' : 'text-ink hover:bg-cream' }}">
                 Fitur AI
