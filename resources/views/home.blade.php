@@ -10,20 +10,10 @@
     {{-- 2. HERO — Chator AI search bar --}}
     <x-hero-chator />
 
-    {{-- 3. BANNER ANGGARAN --}}
-    <x-budget-banner :items="$budgetItems" />
-
-    {{-- 4. SOROTAN UTAMA — foto full-bleed, aspect 16:10 --}}
-    @if ($sorotanUtama)
-        <section class="border-t border-hair">
-            <x-feature-story :article="$sorotanUtama" size="lg" />
-        </section>
-    @endif
-
-    {{-- 5. LIVE ASPIRASI WARGA --}}
+    {{-- 3. LIVE ASPIRASI WARGA --}}
     <x-live-aspirasi :aspirasi="$aspirasi" :aiTotal="$aspirasiAiTotal" />
 
-    {{-- 6. KATEGORI BERITA --}}
+    {{-- 4. KATEGORI BERITA --}}
     <section class="px-[22px] pt-[22px] pb-[34px] border-t border-hair">
         <div class="section-eyebrow">
             <h2 class="section-title">Kategori Berita</h2>
@@ -35,7 +25,7 @@
         </div>
     </section>
 
-    {{-- 7. FITUR AI --}}
+    {{-- 5. FITUR AI --}}
     @if ($aiFeatures->isNotEmpty())
         <section class="px-[22px] pt-1 pb-[34px]">
             <div class="section-eyebrow">
