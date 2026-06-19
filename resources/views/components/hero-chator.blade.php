@@ -1,16 +1,10 @@
 {{-- Hero Chator AI: lockup + kotak input "Tanya ke AI". --}}
 <section id="chator" class="px-[22px] py-[26px] text-center border-b border-hair bg-cream">
-    <div class="mb-[18px]">
-        <h2 style="font-family:'Fraunces',serif; font-size:22px; font-weight:600;
-                   line-height:1.25; letter-spacing:-0.01em; color:#1a1816; margin-bottom:8px;">
-            Apa aspirasi atau pertanyaan Anda hari ini?
-        </h2>
-        <p style="font-family:'Inter',sans-serif; font-size:13px; font-weight:400;
-                  line-height:1.5; color:#79716b;">
-            Sampaikan keluhan, usulan, atau cari informasi publik<br class="hidden sm:inline">
-            dengan bantuan AI.
-        </p>
-    </div>
+    <p class="mb-[18px]" style="font-family:'Inter',sans-serif; font-size:13px; font-weight:400;
+              line-height:1.5; color:#79716b;">
+        Sampaikan keluhan, usulan, atau cari informasi publik
+        dengan bantuan AI.
+    </p>
 
     <form action="{{ route('ai.ask') }}" method="GET"
           class="text-left bg-white border-[1.5px] border-hair rounded-2xl px-2.5 pt-2.5 pb-2.5
