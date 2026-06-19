@@ -1,8 +1,11 @@
 {{-- Hero Chator AI: lockup + kotak input "Tanya ke AI". --}}
 <section id="chator" class="px-[22px] py-[26px] text-center border-b border-hair bg-cream">
-    <div class="flex flex-col items-center mb-[18px]" style="gap:4px;">
-        <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:19px; letter-spacing:-0.02em; color:#1a1816;">Chator AI</span>
-        <span style="font-family:'Inter',sans-serif; font-weight:400; font-size:7px; letter-spacing:0.01em; color:#9a9183;">Powered by mataGen.ai</span>
+    <div class="flex items-center justify-center gap-[9px] mb-[18px]">
+        <img src="/images/chator-icon.png" alt="" class="h-8 w-auto opacity-50 block">
+        <div class="flex flex-col items-start leading-[1.15]">
+            <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:19px; letter-spacing:-0.02em; color:#1a1816;">Chator AI</span>
+            <span style="font-family:'Inter',sans-serif; font-weight:400; font-size:7px; letter-spacing:0.01em; color:#9a9183; margin-top:2px;">Powered by mataGen.ai</span>
+        </div>
     </div>
 
     <form action="{{ route('ai.ask') }}" method="GET"
