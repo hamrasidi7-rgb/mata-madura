@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700;800&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f9f5ef;
+  --color-ink:   #1c1814;
+  --color-accent: #c8372d;
+  --color-muted:  #79716b;
+  --color-warm:   #9c6644;
+  --color-hair:   #e7e0d8;
+}
 
 @layer base {
   body {
