@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Str;
 
 class Article extends Model
 {
     protected $fillable = [
         'category_id', 'title', 'slug', 'deck', 'body', 'image_path',
         'image_caption', 'author', 'read_minutes', 'is_trending',
-        'is_featured', 'published_at',
+        'is_featured', 'published_at', 'views',
     ];
 
     protected $casts = [
@@ -19,9 +20,41 @@ class Article extends Model
         'published_at' => 'datetime',
     ];
 
+    protected static function booted(): void
+    {
+        static::saving(function (Article $article) {
+            if (empty($article->slug)) {
+                $article->slug = static::uniqueSlug($article->title, $article->id);
+            }
+        });
+    }
+
+    protected static function uniqueSlug(string $title, ?int $ignoreId = null): string
+    {
+        $base = Str::slug($title);
+        $slug = $base;
+        $i    = 1;
+
+        while (
+            static::where('slug', $slug)
+                  ->when($ignoreId, fn ($q) => $q->where('id', '!=', $ignoreId))
+                  ->exists()
+        ) {
+            $slug = "{$base}-{$i}";
+            $i++;
+        }
+
+        return $slug;
+    }
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function getStatusAttribute(): string
+    {
+        return $this->published_at ? 'published' : 'draft';
     }
 
     /** "5 menit baca · 18 Jun 2026" */
