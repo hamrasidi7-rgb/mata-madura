@@ -37,13 +37,19 @@
         <div class="border-t border-hair pt-4">
             <p class="text-[12px] font-semibold text-ink truncate">{{ auth()->user()->name }}</p>
             <p class="text-[11px] text-muted truncate mb-2">{{ auth()->user()->email }}</p>
-            <form action="{{ route('admin.logout') }}" method="POST">
-                @csrf
-                <button type="submit"
-                        class="text-[12px] text-accent hover:text-accent/70 font-semibold">
-                    Keluar →
-                </button>
-            </form>
+            <div class="flex items-center gap-3">
+                <a href="{{ route('admin.profile') }}"
+                   class="text-[12px] {{ request()->routeIs('admin.profile') ? 'text-accent' : 'text-ink-2 hover:text-accent' }} font-semibold">
+                    Profil
+                </a>
+                <form action="{{ route('admin.logout') }}" method="POST">
+                    @csrf
+                    <button type="submit"
+                            class="text-[12px] text-accent hover:text-accent/70 font-semibold">
+                        Keluar →
+                    </button>
+                </form>
+            </div>
         </div>
         @endauth
     </aside>

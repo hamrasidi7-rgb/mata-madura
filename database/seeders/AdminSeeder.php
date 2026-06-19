@@ -8,10 +8,9 @@ use App\Models\User;
 
 class AdminSeeder extends Seeder
 {
-    // Ganti email & password sesuai kebutuhan sebelum deploy pertama
-    const EMAIL    = 'admin@matamadura.id';
-    const PASSWORD = 'MataMadura2026!';
-    const NAME     = 'Admin MataMadura';
+    const EMAIL    = 'admin@matamadura.news';
+    const PASSWORD = 'Matamadura-026';
+    const NAME     = 'Hambali Rasidi';
 
     public function run(): void
     {
@@ -24,6 +23,6 @@ class AdminSeeder extends Seeder
             ]
         );
 
-        $this->command->info('Admin user ready: ' . self::EMAIL);
+        $this->command->info('Admin ready: ' . self::EMAIL);
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AiFeatureController;
 use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
+use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,4 +44,7 @@ Route::prefix('admin')
         Route::resource('ai-features', AiFeatureController::class)->except(['show']);
         Route::resource('articles', AdminArticleController::class)->except(['show']);
         Route::resource('categories', AdminCategoryController::class)->except(['show', 'create', 'edit']);
+        Route::get('profile', [ProfileController::class, 'edit'])->name('profile');
+        Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::put('profile/password', [ProfileController::class, 'updatePassword'])->name('profile.password');
     });
