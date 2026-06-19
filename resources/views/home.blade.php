@@ -13,7 +13,21 @@
     {{-- 3. LIVE ASPIRASI WARGA --}}
     <x-live-aspirasi :aspirasi="$aspirasi" :aiTotal="$aspirasiAiTotal" />
 
-    {{-- 4. KATEGORI BERITA --}}
+    {{-- 4. BERITA TERBARU — 4 item foto kiri + judul kanan --}}
+    @if ($latest->isNotEmpty())
+        <section class="px-[22px] pt-[22px] pb-[6px] border-t border-hair">
+            <div class="section-eyebrow">
+                <h2 class="section-title">Berita Terbaru</h2>
+            </div>
+            <div class="flex flex-col">
+                @foreach ($latest as $article)
+                    <x-news-list-item :article="$article" />
+                @endforeach
+            </div>
+        </section>
+    @endif
+
+    {{-- 5. KATEGORI BERITA --}}
     <section class="px-[22px] pt-[22px] pb-[34px] border-t border-hair">
         <div class="section-eyebrow">
             <h2 class="section-title">Kategori Berita</h2>
