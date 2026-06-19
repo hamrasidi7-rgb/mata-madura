@@ -1,66 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700;800&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700;800&display=swap');
 
 @import "tailwindcss";
-@import "tailwindcss";
+
+@source "../**/*.blade.php";
+@source "../**/*.js";
 
 @theme {
-  /* Colors */
-  --color-paper:  #faf8f3;
-  --color-cream:  #f9f5ef;
-  --color-ink:    #1c1814;
-  --color-ink-2:  #4a4240;
-  --color-accent: #c8372d;
-  --color-muted:  #79716b;
-  --color-warm:   #9c6644;
-  --color-hair:   #e7e0d8;
+    --color-paper:  #faf8f3;
+    --color-cream:  #f9f5ef;
+    --color-ink:    #1c1814;
+    --color-ink-2:  #4a4240;
+    --color-accent: #c8372d;
+    --color-muted:  #79716b;
+    --color-warm:   #9c6644;
+    --color-hair:   #e7e0d8;
 
-  /* Typography */
-  --font-sans:  'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-serif: 'Fraunces', ui-serif, Georgia, serif;
+    --font-sans:  'Inter', sans-serif;
+    --font-serif: 'Fraunces', serif;
 
-  /* Layout */
-  --max-width-app: 1200px;
-
-  /* Shadows */
-  --shadow-soft: 0 1px 3px rgba(0,0,0,0.08);
-  --shadow-card: 0 2px 8px rgba(0,0,0,0.10);
+    --max-width-app: 1200px;
 }
 
-@layer base {
-  body {
-    @apply bg-cream font-sans text-ink antialiased;
-  }
+.article-body p {
+    @apply text-[16px] leading-[1.72] text-[#2a2620] mb-5;
 }
 
-@layer components {
-  /* Label seksi: garis merah pendek + judul uppercase */
-  .section-eyebrow {
-    @apply flex items-center gap-2.5 mb-4;
-  }
-  .section-eyebrow::before {
-    content: '';
-    @apply block w-[26px] h-[3px] bg-accent flex-none;
-  }
-  .section-title {
-    @apply font-sans text-[13px] font-extrabold tracking-[0.08em] uppercase text-ink;
-  }
-
-  /* Drop cap untuk paragraf pertama artikel */
-  .article-body > p:first-of-type::first-letter {
-    @apply font-serif text-accent;
-    float: left;
-    font-size: 3.5em;
-    line-height: 0.78;
-    font-weight: 600;
-    padding: 6px 10px 0 0;
-  }
-  .article-body h2 { @apply font-serif text-[22px] font-semibold leading-tight tracking-tight mt-8 mb-3.5; }
-  .article-body p  { @apply text-[16px] leading-[1.72] text-[#2a2620] mb-5; }
-  .article-body blockquote {
+.article-body blockquote {
     @apply my-7 pl-5 border-l-[3px] border-accent;
-  }
-  .article-body blockquote p { @apply font-serif italic text-[20px] leading-snug text-ink mb-0; }
-
-  .no-scrollbar::-webkit-scrollbar { display: none; }
-  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }
+
+.article-body blockquote p {
+    @apply font-serif italic text-[20px] leading-snug text-ink mb-0;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
