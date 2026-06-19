@@ -23,7 +23,18 @@
 
 /* ── Section labels ──────────────────────────────────────────── */
 .section-eyebrow {
-    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.section-eyebrow::before {
+    content: '';
+    width: 26px;
+    height: 3px;
+    background: #b21f24;
+    flex: 0 0 auto;
 }
 
 .section-title {
@@ -33,6 +44,7 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #1a1816;
+    margin: 0;
 }
 
 /* ── Article body ────────────────────────────────────────────── */
