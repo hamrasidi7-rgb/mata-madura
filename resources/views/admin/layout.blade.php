@@ -17,7 +17,7 @@
             <span class="ml-1 text-[10px] border-2 border-accent rounded px-1">AI</span>
         </a>
 
-        <nav class="flex flex-col gap-1 text-[14px]">
+        <nav class="flex flex-col gap-1 text-[14px] flex-1">
             <a href="{{ route('admin.articles.index') }}"
                class="px-3 py-2 rounded-lg font-semibold {{ request()->routeIs('admin.articles.*') ? 'bg-accent/10 text-accent' : 'text-ink hover:bg-cream' }}">
                 Berita
@@ -31,6 +31,21 @@
                 Fitur AI
             </a>
         </nav>
+
+        {{-- User card --}}
+        @auth
+        <div class="border-t border-hair pt-4">
+            <p class="text-[12px] font-semibold text-ink truncate">{{ auth()->user()->name }}</p>
+            <p class="text-[11px] text-muted truncate mb-2">{{ auth()->user()->email }}</p>
+            <form action="{{ route('admin.logout') }}" method="POST">
+                @csrf
+                <button type="submit"
+                        class="text-[12px] text-accent hover:text-accent/70 font-semibold">
+                    Keluar →
+                </button>
+            </form>
+        </div>
+        @endauth
     </aside>
 
     {{-- Konten --}}

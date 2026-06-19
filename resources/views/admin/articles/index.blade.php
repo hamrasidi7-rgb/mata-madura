@@ -42,7 +42,8 @@
         <table class="w-full text-[13px]">
             <thead class="bg-cream text-ink-2 font-semibold text-left">
                 <tr>
-                    <th class="px-4 py-3 w-[45%]">Judul</th>
+                    <th class="px-4 py-3 w-[38%]">Judul</th>
+                    <th class="px-4 py-3">Penulis</th>
                     <th class="px-4 py-3">Kategori</th>
                     <th class="px-4 py-3">Status</th>
                     <th class="px-4 py-3 text-right">Views</th>
@@ -58,6 +59,9 @@
                         @if($article->deck)
                             <div class="text-ink-2 text-[12px] line-clamp-1 mt-0.5">{{ $article->deck }}</div>
                         @endif
+                    </td>
+                    <td class="px-4 py-3 text-ink-2 text-[12px]">
+                        {{ $article->author_name ?: 'Redaksi MataMadura' }}
                     </td>
                     <td class="px-4 py-3 text-ink-2">
                         {{ $article->category?->name ?? '—' }}
@@ -89,7 +93,7 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="6" class="px-4 py-12 text-center text-ink-2">
+                    <td colspan="7" class="px-4 py-12 text-center text-ink-2">
                         Belum ada artikel.
                         <a href="{{ route('admin.articles.create') }}" class="text-accent font-semibold ml-1">Tulis sekarang →</a>
                     </td>

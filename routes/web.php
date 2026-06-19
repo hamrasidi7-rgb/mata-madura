@@ -5,6 +5,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AiFeatureController;
 use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
+use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,12 +21,23 @@ Route::get('/berita/{article:slug}', [ArticleController::class, 'show'])->name('
 
 /*
 |--------------------------------------------------------------------------
-| Admin — lindungi dengan middleware auth milikmu (mis. Breeze/Fortify)
+| Admin Auth (terbuka — tidak butuh login)
+|--------------------------------------------------------------------------
+*/
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('login', [AuthController::class, 'showLogin'])->name('login');
+    Route::post('login', [AuthController::class, 'login'])->name('login.post');
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Admin Panel (dilindungi auth)
 |--------------------------------------------------------------------------
 */
 Route::prefix('admin')
     ->name('admin.')
-    // ->middleware(['auth', 'can:manage-content'])   // <- aktifkan setelah auth terpasang
+    ->middleware(['auth'])
     ->group(function () {
         Route::post('ai-features/reorder', [AiFeatureController::class, 'reorder'])->name('ai-features.reorder');
         Route::resource('ai-features', AiFeatureController::class)->except(['show']);

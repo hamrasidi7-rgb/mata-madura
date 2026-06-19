@@ -10,7 +10,7 @@ class Article extends Model
 {
     protected $fillable = [
         'category_id', 'title', 'slug', 'deck', 'body', 'image_path',
-        'image_caption', 'author', 'read_minutes', 'is_trending',
+        'image_caption', 'author', 'author_name', 'read_minutes', 'is_trending',
         'is_featured', 'published_at', 'views',
     ];
 
