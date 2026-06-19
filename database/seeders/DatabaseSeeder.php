@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
             ArticleSeeder::class,
             AiFeatureSeeder::class,
             BudgetItemSeeder::class,
+            AspirasiSeeder::class,
         ]);
     }
 }

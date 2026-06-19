@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AiFeature;
 use App\Models\Article;
+use App\Models\Aspirasi;
 use App\Models\BudgetItem;
 use App\Models\Category;
 
@@ -15,27 +16,16 @@ class HomeController extends Controller
 
         $sorotanUtama = Article::published()->where('is_featured', true)->first();
 
-        $trending = Article::published()->where('is_trending', true)
-            ->with('category')->take(6)->get();
-
-        $latestQuery = Article::published()->with('category');
-        $latestFeatured = (clone $latestQuery)
-            ->when($sorotanUtama, fn ($q) => $q->whereKeyNot($sorotanUtama->id))
-            ->first();
-
-        $latest = (clone $latestQuery)
-            ->when($sorotanUtama, fn ($q) => $q->whereKeyNot($sorotanUtama->id))
-            ->when($latestFeatured, fn ($q) => $q->whereKeyNot($latestFeatured->id))
-            ->take(4)->get();
+        $aspirasi    = Aspirasi::active()->take(9)->get();
+        $aspirasiAiTotal = Aspirasi::active()->sum('similar_count');
 
         return view('home', [
-            'categories'     => $categories,
-            'budgetItems'    => BudgetItem::active()->get(),
-            'sorotanUtama'   => $sorotanUtama,
-            'trending'       => $trending,
-            'latestFeatured' => $latestFeatured,
-            'latest'         => $latest,
-            'aiFeatures'     => AiFeature::active()->get(),
+            'categories'      => $categories,
+            'budgetItems'     => BudgetItem::active()->get(),
+            'sorotanUtama'    => $sorotanUtama,
+            'aspirasi'        => $aspirasi,
+            'aspirasiAiTotal' => $aspirasiAiTotal,
+            'aiFeatures'      => AiFeature::active()->get(),
         ]);
     }
 }
