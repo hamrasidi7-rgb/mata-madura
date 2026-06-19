@@ -13,7 +13,14 @@
     {{-- 3. SECTION UTAMA — Banner anggaran (label + ikon + nominal Rp) --}}
     <x-budget-banner :items="$budgetItems" />
 
-    {{-- 4. BERITA TRENDING (kartu horizontal bernomor) --}}
+    {{-- 4. SOROTAN UTAMA — foto full-bleed, aspect 16:10, sudut tajam --}}
+    @if ($sorotanUtama)
+        <section class="border-t border-hair">
+            <x-feature-story :article="$sorotanUtama" size="lg" />
+        </section>
+    @endif
+
+    {{-- 5. BERITA TRENDING (kartu horizontal bernomor) --}}
     @if ($trending->isNotEmpty())
         <section class="pt-[22px] pb-[30px] border-t border-hair">
             <div class="section-eyebrow px-[22px]">
@@ -27,7 +34,7 @@
         </section>
     @endif
 
-    {{-- 5. BERITA TERBARU (featured + list) --}}
+    {{-- 6. BERITA TERBARU (featured + list) --}}
     <section class="px-[22px] pt-[22px] pb-[30px] border-t border-hair">
         <div class="section-eyebrow">
             <h2 class="section-title">Berita Terbaru</h2>

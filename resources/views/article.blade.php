@@ -34,12 +34,13 @@
         @endif
 
         <div class="flex items-center gap-2.5 py-3.5 border-y border-hair mb-[22px]">
+            @php $byline = $article->author_name ?: ($article->author ?: 'Redaksi MataMadura'); @endphp
             <div class="w-9 h-9 rounded-full bg-gradient-to-br from-warm to-accent text-white
                         font-bold text-[13px] flex items-center justify-center">
-                {{ \Illuminate\Support\Str::of($article->author)->explode(' ')->map(fn($w) => mb_substr($w, 0, 1))->take(2)->implode('') }}
+                {{ \Illuminate\Support\Str::of($byline)->explode(' ')->map(fn($w) => mb_substr($w, 0, 1))->take(2)->implode('') }}
             </div>
             <div class="text-[12.5px] text-[#6b6358] leading-tight">
-                <span class="font-bold text-ink">{{ $article->author }}</span><br>
+                <span class="font-bold text-ink">{{ $byline }}</span><br>
                 {{ $article->meta }}
             </div>
         </div>
