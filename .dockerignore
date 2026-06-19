@@ -4,5 +4,6 @@ vendor
 .env
 .env.*
 public/hot
+public/build
 public/storage
 storage/*.key
