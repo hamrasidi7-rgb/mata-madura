@@ -1,29 +1,22 @@
 {{-- Hero Chator AI: lockup + kotak input "Tanya ke AI". --}}
 <section id="chator" class="px-[22px] py-[26px] text-center border-b border-hair bg-cream">
-    <div class="flex items-center justify-center gap-[9px] mb-[18px]">
-        {{-- Ikon mata heksagon — SVG inline, tidak butuh file eksternal --}}
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-             style="height:32px;width:auto;display:block;opacity:0.5;flex:none;">
-            {{-- Heksagon point-top --}}
-            <path d="M16 2.5 L27.5 9.25 L27.5 22.75 L16 29.5 L4.5 22.75 L4.5 9.25 Z"
-                  stroke="#5ab8c4" stroke-width="1.8" stroke-linejoin="round" fill="none"/>
-            {{-- Mata: oval atas-bawah simetris --}}
-            <path d="M7 16 C9 10 23 10 25 16 C23 22 9 22 7 16 Z"
-                  stroke="#5ab8c4" stroke-width="1.4" fill="none"/>
-            {{-- Pupil --}}
-            <circle cx="16" cy="16" r="2.6" fill="#5ab8c4"/>
-        </svg>
-        <div class="flex flex-col items-start leading-[1.15]">
-            <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:19px; letter-spacing:-0.02em; color:#1a1816;">Chator AI</span>
-            <span style="font-family:'Inter',sans-serif; font-weight:400; font-size:7px; letter-spacing:0.01em; color:#9a9183; margin-top:2px;">Powered by mataGen.ai</span>
-        </div>
+    <div class="mb-[18px]">
+        <h2 style="font-family:'Fraunces',serif; font-size:22px; font-weight:600;
+                   line-height:1.25; letter-spacing:-0.01em; color:#1a1816; margin-bottom:8px;">
+            Apa aspirasi atau pertanyaan Anda hari ini?
+        </h2>
+        <p style="font-family:'Inter',sans-serif; font-size:13px; font-weight:400;
+                  line-height:1.5; color:#79716b;">
+            Sampaikan keluhan, usulan, atau cari informasi publik<br class="hidden sm:inline">
+            dengan bantuan AI.
+        </p>
     </div>
 
     <form action="{{ route('ai.ask') }}" method="GET"
           class="text-left bg-white border-[1.5px] border-hair rounded-2xl px-2.5 pt-2.5 pb-2.5
                  max-w-[340px] mx-auto shadow-soft focus-within:border-warm
                  focus-within:ring-4 focus-within:ring-warm/10 transition">
-        <input type="text" name="q" value="{{ request('q') }}" placeholder="Tanya ke AI"
+        <input type="text" name="q" value="{{ request('q') }}" placeholder="Tulis aspirasi atau pertanyaan…"
                class="w-full text-[13px] text-ink placeholder:text-muted/80 border-0 p-0 pb-2.5
                       focus:ring-0 bg-transparent" />
         <div class="flex items-center justify-between">
