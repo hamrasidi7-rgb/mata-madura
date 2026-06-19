@@ -8,4 +8,4 @@ RUN composer install --optimize-autoloader --no-dev --no-interaction
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && apt-get install -y nodejs
 RUN npm ci && npm run build
 EXPOSE 8080
-CMD php artisan migrate --force && php -S 0.0.0.0:${PORT:-8080} -t public public/index.php
+CMD php -S 0.0.0.0:${PORT:-8080} -t public public/index.php
