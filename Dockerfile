@@ -17,4 +17,4 @@ RUN composer install --optimize-autoloader --no-dev --no-interaction
 RUN npm ci && npm run build
 
 EXPOSE 8080
-CMD php -S 0.0.0.0:${PORT:-8080} -t public server.php
+CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port=${PORT:-8080}"]
