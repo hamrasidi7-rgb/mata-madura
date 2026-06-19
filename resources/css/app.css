@@ -3,12 +3,26 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cream: #f9f5ef;
-  --color-ink:   #1c1814;
+  /* Colors */
+  --color-paper:  #faf8f3;
+  --color-cream:  #f9f5ef;
+  --color-ink:    #1c1814;
+  --color-ink-2:  #4a4240;
   --color-accent: #c8372d;
   --color-muted:  #79716b;
   --color-warm:   #9c6644;
   --color-hair:   #e7e0d8;
+
+  /* Typography */
+  --font-sans:  'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Fraunces', ui-serif, Georgia, serif;
+
+  /* Layout */
+  --max-width-app: 1200px;
+
+  /* Shadows */
+  --shadow-soft: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.10);
 }
 
 @layer base {
