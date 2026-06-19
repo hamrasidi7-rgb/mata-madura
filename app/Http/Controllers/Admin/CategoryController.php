@@ -55,7 +55,7 @@ class CategoryController extends Controller
 
         if ($count > 0) {
             return redirect()->route('admin.categories.index')
-                ->with('error', "Tidak bisa menghapus "{$category->name}" — masih ada {$count} artikel terkait.");
+                ->with('error', "Tidak bisa menghapus \"{$category->name}\" — masih ada {$count} artikel terkait.");
         }
 
         $category->delete();
