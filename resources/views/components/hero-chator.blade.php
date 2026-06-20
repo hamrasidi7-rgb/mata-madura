@@ -1,22 +1,22 @@
 {{-- Hero: Tanya AI soal APBD Sumenep --}}
 <section id="chator" class="px-[22px] py-[26px] text-center border-b border-hair bg-cream">
 
-    {{-- Brand: ikon + Chator AI + Powered by --}}
-    <div class="flex flex-col items-center mb-[18px]">
-        <div class="flex items-center justify-center gap-[9px] mb-[4px]">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                 style="height:32px;width:auto;display:block;opacity:0.5;flex:none;">
-                <path d="M16 2.5 L27.5 9.25 L27.5 22.75 L16 29.5 L4.5 22.75 L4.5 9.25 Z"
-                      stroke="#5ab8c4" stroke-width="1.8" stroke-linejoin="round" fill="none"/>
-                <path d="M7 16 C9 10 23 10 25 16 C23 22 9 22 7 16 Z"
-                      stroke="#5ab8c4" stroke-width="1.4" fill="none"/>
-                <circle cx="16" cy="16" r="2.6" fill="#5ab8c4"/>
-            </svg>
-            <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:19px;
-                         letter-spacing:-0.02em; color:#1a1816;">Chator AI</span>
+    {{-- Brand: ikon kiri + kolom kanan (Chator AI + Powered by menempel di bawahnya) --}}
+    <div class="flex items-center justify-center gap-[9px] mb-[18px]">
+        <svg width="26" height="26" viewBox="0 0 32 32" fill="none"
+             style="height:26px;width:auto;display:block;opacity:0.5;flex:none;">
+            <path d="M16 2.5 L27.5 9.25 L27.5 22.75 L16 29.5 L4.5 22.75 L4.5 9.25 Z"
+                  stroke="#5ab8c4" stroke-width="1.8" stroke-linejoin="round" fill="none"/>
+            <path d="M7 16 C9 10 23 10 25 16 C23 22 9 22 7 16 Z"
+                  stroke="#5ab8c4" stroke-width="1.4" fill="none"/>
+            <circle cx="16" cy="16" r="2.6" fill="#5ab8c4"/>
+        </svg>
+        <div class="flex flex-col items-center" style="gap:2px;">
+            <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:25px;
+                         letter-spacing:-0.02em; color:#1a1816; line-height:1;">Chator AI</span>
+            <span style="font-family:'Inter',sans-serif; font-weight:400; font-size:7px;
+                         letter-spacing:0.01em; color:#9a9183; line-height:1;">Powered by mataGen.ai</span>
         </div>
-        <span style="font-family:'Inter',sans-serif; font-weight:400; font-size:7px;
-                     letter-spacing:0.01em; color:#9a9183;">Powered by mataGen.ai</span>
     </div>
 
     <h1 style="font-family:'Fraunces',serif; font-size:22px; font-weight:600;
