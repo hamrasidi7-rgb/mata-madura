@@ -34,7 +34,7 @@
                  max-w-[340px] mx-auto shadow-soft focus-within:border-accent
                  focus-within:ring-4 focus-within:ring-accent/10 transition">
         <input type="text" name="q" value="{{ request('q') }}"
-               placeholder="Tanyakan soal anggaran, program, atau pengadaan…"
+               placeholder="Tanyakan soal anggaran Sumenep…"
                class="w-full text-[13px] text-ink placeholder:text-muted/70 border-0 p-0 pb-2.5
                       focus:ring-0 bg-transparent" />
         <div class="flex items-center justify-between">
