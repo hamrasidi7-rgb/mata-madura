@@ -32,11 +32,13 @@
 
         {{-- CTA kirim aspirasi --}}
         <a href="/aspirasi"
-           class="flex items-center justify-between px-4 py-3 bg-cream
+           class="flex items-center gap-2 px-4 py-3 bg-cream
                   hover:bg-hair transition text-[13px] font-semibold"
            style="color:#C0392B;">
-            <span>Punya keluhan atau usulan? Sampaikan di sini</span>
-            <span>→</span>
+            <span class="flex-1 min-w-0 overflow-hidden text-ellipsis whitespace-nowrap">
+                Punya keluhan atau usulan? Sampaikan di sini
+            </span>
+            <span class="flex-none">→</span>
         </a>
 
     </div>
