@@ -8,7 +8,7 @@ class Aspirasi extends Model
 {
     protected $table = 'aspirasi';
 
-    protected $fillable = ['title', 'location', 'color', 'similar_count', 'submitted_at', 'is_active'];
+    protected $fillable = ['title', 'location', 'color', 'status', 'similar_count', 'submitted_at', 'is_active'];
 
     protected $casts = [
         'is_active'    => 'boolean',

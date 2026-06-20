@@ -4,6 +4,7 @@ use App\Http\Controllers\AiAssistantController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AiFeatureController;
+use App\Http\Controllers\Admin\AspirasiController as AdminAspirasiController;
 use App\Http\Controllers\Admin\AuditHighlightController;
 use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
 use App\Http\Controllers\Admin\AuthController;
@@ -44,6 +45,9 @@ Route::prefix('admin')
     ->middleware(['auth'])
     ->group(function () {
         Route::resource('audit-highlights', AuditHighlightController::class)->except(['show']);
+        Route::resource('aspirasi', AdminAspirasiController::class)->only(['index', 'edit', 'update', 'destroy']);
+        Route::patch('aspirasi/{aspirasi}/status', [AdminAspirasiController::class, 'updateStatus'])->name('aspirasi.update-status');
+        Route::patch('aspirasi/{aspirasi}/toggle', [AdminAspirasiController::class, 'toggle'])->name('aspirasi.toggle');
         Route::post('ai-features/reorder', [AiFeatureController::class, 'reorder'])->name('ai-features.reorder');
         Route::resource('ai-features', AiFeatureController::class)->except(['show']);
         Route::resource('articles', AdminArticleController::class)->except(['show']);
