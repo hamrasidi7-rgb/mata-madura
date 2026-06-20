@@ -7,13 +7,16 @@
     {{-- 1. HEADER --}}
     <x-site-header :categories="$categories" />
 
-    {{-- 2. HERO — Chator AI search bar --}}
+    {{-- 2. HERO — Tanya AI soal APBD --}}
     <x-hero-chator />
 
-    {{-- 3. LIVE ASPIRASI WARGA --}}
-    <x-live-aspirasi :aspirasi="$aspirasi" :aiTotal="$aspirasiAiTotal" />
+    {{-- 3. STRIP AUDIT RUP --}}
+    <x-audit-strip :highlights="$highlights" />
 
-    {{-- 4. BERITA TERBARU — 4 item foto kiri + judul kanan --}}
+    {{-- 4. ASPIRASI WARGA — kotak kecil, pelengkap --}}
+    <x-aspirasi-box :aspirasi="$aspirasi" />
+
+    {{-- 5. BERITA TERBARU — 4 item foto kiri + judul kanan --}}
     @if ($latest->isNotEmpty())
         <section class="px-[22px] pt-[22px] pb-[6px] border-t border-hair">
             <div class="section-eyebrow">
@@ -27,7 +30,7 @@
         </section>
     @endif
 
-    {{-- 5. KATEGORI BERITA --}}
+    {{-- 6. KATEGORI BERITA --}}
     <section class="px-[22px] pt-[22px] pb-[34px] border-t border-hair">
         <div class="section-eyebrow">
             <h2 class="section-title">Kategori Berita</h2>
@@ -39,7 +42,7 @@
         </div>
     </section>
 
-    {{-- 5. FITUR AI --}}
+    {{-- 7. FITUR AI --}}
     @if ($aiFeatures->isNotEmpty())
         <section class="px-[22px] pt-1 pb-[34px]">
             <div class="section-eyebrow">

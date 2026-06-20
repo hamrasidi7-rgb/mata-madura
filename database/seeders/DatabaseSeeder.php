@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
             AiFeatureSeeder::class,
             BudgetItemSeeder::class,
             AspirasiSeeder::class,
+            AuditHighlightSeeder::class,
         ]);
     }
 }

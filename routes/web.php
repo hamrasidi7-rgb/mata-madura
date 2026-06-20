@@ -19,6 +19,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/ai/ask', [AiAssistantController::class, 'ask'])->name('ai.ask');
 Route::get('/kategori/{category:slug}', [ArticleController::class, 'category'])->name('category.show');
 Route::get('/berita/{article:slug}', [ArticleController::class, 'show'])->name('article.show');
+Route::get('/tanya', fn () => view('tanya'))->name('tanya');
+Route::get('/aspirasi', fn () => view('aspirasi'))->name('aspirasi');
 
 /*
 |--------------------------------------------------------------------------
