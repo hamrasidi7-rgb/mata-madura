@@ -10,22 +10,23 @@ class AspirasiController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Aspirasi::latest('submitted_at');
+        $mod   = $request->get('mod', 'pending');
+        $query = Aspirasi::where('moderation_status', $mod);
 
-        if ($request->filled('status')) {
-            $query->where('status', $request->status);
-        }
+        // Pending: terlama dulu (biar tidak terlewat)
+        $query = $mod === 'pending'
+            ? $query->oldest('submitted_at')
+            : $query->latest('submitted_at');
 
         $aspirasi = $query->paginate(20)->withQueryString();
 
         $counts = [
-            'all'         => Aspirasi::count(),
-            'baru'        => Aspirasi::where('status', 'baru')->count(),
-            'ditanggapi'  => Aspirasi::where('status', 'ditanggapi')->count(),
-            'selesai'     => Aspirasi::where('status', 'selesai')->count(),
+            'pending'  => Aspirasi::where('moderation_status', 'pending')->count(),
+            'approved' => Aspirasi::where('moderation_status', 'approved')->count(),
+            'rejected' => Aspirasi::where('moderation_status', 'rejected')->count(),
         ];
 
-        return view('admin.aspirasi.index', compact('aspirasi', 'counts'));
+        return view('admin.aspirasi.index', compact('aspirasi', 'counts', 'mod'));
     }
 
     public function edit(Aspirasi $aspirasi)
@@ -49,22 +50,67 @@ class AspirasiController extends Controller
             ->with('success', 'Aspirasi berhasil diperbarui.');
     }
 
-    /** Ganti status cepat langsung dari daftar. */
+    /** Setujui — aspirasi tampil di homepage. */
+    public function approve(Aspirasi $aspirasi)
+    {
+        $aspirasi->update([
+            'moderation_status' => 'approved',
+            'moderated_at'      => now(),
+            'moderated_by'      => auth()->id(),
+            'rejection_reason'  => null,
+            'is_active'         => true,
+        ]);
+
+        return back()->with('success', 'Aspirasi disetujui dan kini tampil di beranda.');
+    }
+
+    /** Tolak — tidak tampil di homepage, alasan tersimpan. */
+    public function reject(Request $request, Aspirasi $aspirasi)
+    {
+        $request->validate([
+            'rejection_reason' => ['nullable', 'string', 'max:255'],
+        ]);
+
+        $aspirasi->update([
+            'moderation_status' => 'rejected',
+            'moderated_at'      => now(),
+            'moderated_by'      => auth()->id(),
+            'rejection_reason'  => $request->rejection_reason,
+            'is_active'         => false,
+        ]);
+
+        return back()->with('success', 'Aspirasi ditolak dan tidak ditampilkan di beranda.');
+    }
+
+    /** Kembalikan ke antrian pending. */
+    public function setPending(Aspirasi $aspirasi)
+    {
+        $aspirasi->update([
+            'moderation_status' => 'pending',
+            'moderated_at'      => null,
+            'moderated_by'      => null,
+            'rejection_reason'  => null,
+            'is_active'         => false,
+        ]);
+
+        return back()->with('success', 'Aspirasi dikembalikan ke antrian moderasi.');
+    }
+
+    /** Ganti status penanganan cepat (hanya untuk approved). */
     public function updateStatus(Request $request, Aspirasi $aspirasi)
     {
         $request->validate(['status' => ['required', 'in:baru,ditanggapi,selesai']]);
-
         $aspirasi->update(['status' => $request->status]);
 
-        return back()->with('success', 'Status aspirasi diperbarui.');
+        return back()->with('success', 'Status penanganan diperbarui.');
     }
 
-    /** Toggle tampil/sembunyikan di homepage. */
+    /** Toggle tampil/sembunyikan di homepage (hanya berlaku untuk approved). */
     public function toggle(Aspirasi $aspirasi)
     {
         $aspirasi->update(['is_active' => ! $aspirasi->is_active]);
-
         $label = $aspirasi->is_active ? 'ditampilkan' : 'disembunyikan';
+
         return back()->with('success', "Aspirasi {$label} dari beranda.");
     }
 

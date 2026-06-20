@@ -27,8 +27,15 @@
                 Strip Audit
             </a>
             <a href="{{ route('admin.aspirasi.index') }}"
-               class="px-3 py-2 rounded-lg font-semibold {{ request()->routeIs('admin.aspirasi.*') ? 'bg-accent/10 text-accent' : 'text-ink hover:bg-cream' }}">
-                Aspirasi Warga
+               class="px-3 py-2 rounded-lg font-semibold flex items-center justify-between
+                      {{ request()->routeIs('admin.aspirasi.*') ? 'bg-accent/10 text-accent' : 'text-ink hover:bg-cream' }}">
+                <span>Aspirasi Warga</span>
+                @php $pendingCount = \App\Models\Aspirasi::where('moderation_status','pending')->count(); @endphp
+                @if ($pendingCount > 0)
+                    <span class="text-[10px] font-bold bg-accent text-white rounded-full px-1.5 py-0.5">
+                        {{ $pendingCount }}
+                    </span>
+                @endif
             </a>
             <a href="{{ route('admin.categories.index') }}"
                class="px-3 py-2 rounded-lg font-semibold {{ request()->routeIs('admin.categories.*') ? 'bg-accent/10 text-accent' : 'text-ink hover:bg-cream' }}">

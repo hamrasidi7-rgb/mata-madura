@@ -24,7 +24,11 @@ class AspirasiSeeder extends Seeder
         foreach ($items as $item) {
             Aspirasi::updateOrCreate(
                 ['title' => $item['title']],
-                array_merge($item, ['is_active' => true])
+                array_merge($item, [
+                    'is_active'         => true,
+                    'moderation_status' => 'approved',
+                    'moderated_at'      => now(),
+                ])
             );
         }
     }
