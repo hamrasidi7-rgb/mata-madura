@@ -49,12 +49,14 @@ class ArticleController extends Controller
             'deck'         => ['nullable', 'string'],
             'body'         => ['required', 'string'],
             'category_id'  => ['required', 'exists:categories,id'],
-            'author'       => ['nullable', 'string', 'max:100'],
-            'read_minutes' => ['nullable', 'integer', 'min:1', 'max:60'],
-            'is_trending'  => ['nullable', 'boolean'],
-            'is_featured'  => ['nullable', 'boolean'],
-            'image'        => ['nullable', 'image', 'max:2048'],
-            'status'       => ['required', 'in:draft,published'],
+            'author'        => ['nullable', 'string', 'max:100'],
+            'author_name'   => ['nullable', 'string', 'max:255'],
+            'image_caption' => ['nullable', 'string', 'max:500'],
+            'read_minutes'  => ['nullable', 'integer', 'min:1', 'max:60'],
+            'is_trending'   => ['nullable', 'boolean'],
+            'is_featured'   => ['nullable', 'boolean'],
+            'image'         => ['nullable', 'image', 'max:2048'],
+            'status'        => ['required', 'in:draft,published'],
         ]);
 
         if ($request->hasFile('image')) {
@@ -87,12 +89,14 @@ class ArticleController extends Controller
             'deck'         => ['nullable', 'string'],
             'body'         => ['required', 'string'],
             'category_id'  => ['required', 'exists:categories,id'],
-            'author'       => ['nullable', 'string', 'max:100'],
-            'read_minutes' => ['nullable', 'integer', 'min:1', 'max:60'],
-            'is_trending'  => ['nullable', 'boolean'],
-            'is_featured'  => ['nullable', 'boolean'],
-            'image'        => ['nullable', 'image', 'max:2048'],
-            'status'       => ['required', 'in:draft,published'],
+            'author'        => ['nullable', 'string', 'max:100'],
+            'author_name'   => ['nullable', 'string', 'max:255'],
+            'image_caption' => ['nullable', 'string', 'max:500'],
+            'read_minutes'  => ['nullable', 'integer', 'min:1', 'max:60'],
+            'is_trending'   => ['nullable', 'boolean'],
+            'is_featured'   => ['nullable', 'boolean'],
+            'image'         => ['nullable', 'image', 'max:2048'],
+            'status'        => ['required', 'in:draft,published'],
         ]);
 
         if ($request->hasFile('image')) {

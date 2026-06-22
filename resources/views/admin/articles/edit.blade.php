@@ -174,6 +174,12 @@
                                @change="preview = URL.createObjectURL($event.target.files[0])">
                     </label>
                     <p class="text-[11px] text-muted mt-1">JPG/PNG, maks 2 MB</p>
+                    <div class="mt-3 pt-3 border-t border-hair">
+                        <label class="block text-[11px] font-semibold text-ink-2 mb-1">KETERANGAN FOTO</label>
+                        <input type="text" name="image_caption" value="{{ old('image_caption', $article->image_caption) }}"
+                               class="w-full text-[12px] text-ink border border-hair rounded-lg px-2 py-1 focus:outline-none focus:ring-2 focus:ring-accent/40"
+                               placeholder="Opsional — keterangan di bawah foto">
+                    </div>
                 </div>
 
                 {{-- Flag --}}
