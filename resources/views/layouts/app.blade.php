@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>@yield('title', 'MataMadura AI — Portal Berita Madura')</title>
-    <meta name="description" content="@yield('meta_description', 'Portal berita Madura berbasis AI. Tanya berita, baca sorotan, dan jelajahi kategori.')">
+    <title>@yield('title', 'mataGen — Startup AI Dari Pulau Madura')</title>
+    <meta name="description" content="@yield('meta_description', 'Membangun Teknologi Kecerdasan Buatan untuk Bangsa Indonesia.')">
 
     {{-- Vite: jalankan `npm run dev` atau `npm run build` --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
