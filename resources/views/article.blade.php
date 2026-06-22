@@ -46,18 +46,27 @@
         </div>
 
         @if ($article->image_path)
-            <figure class="mb-8">
-                <div class="w-full aspect-[16/10] rounded-2xl overflow-hidden bg-cream">
-                    <img src="{{ asset($article->image_path) }}" alt="Ilustrasi artikel" class="w-full h-full object-cover">
-                </div>
-                <figcaption class="text-[11.5px] italic text-muted mt-2.5 leading-snug">
-                    {{ $article->image_caption ?: 'ILUSTRASI by ai' }}
-                </figcaption>
+            <figure class="my-6 max-w-[680px] mx-auto">
+                <img src="{{ asset('storage/' . ltrim($article->image_path, '/')) }}"
+                     alt="Ilustrasi artikel"
+                     class="w-full rounded-2xl object-cover">
+                @if (!empty($article->image_caption))
+                    <figcaption class="text-[11.5px] italic text-muted mt-2.5 leading-snug">
+                        {{ $article->image_caption }}
+                    </figcaption>
+                @endif
             </figure>
         @endif
 
-        <div class="article-body mt-8">
-            {!! $article->body !!}
+        @php
+            $paragraphs = preg_split('/\n\s*\n/', trim($article->body ?? ''));
+        @endphp
+        <div class="article-body max-w-[680px] mx-auto text-[18px] leading-[1.8] text-[#2b2b2b] mt-8">
+            @foreach ($paragraphs as $p)
+                @if (trim($p) !== '')
+                    <p class="mb-6">{!! nl2br(e(trim($p))) !!}</p>
+                @endif
+            @endforeach
         </div>
 
         <div class="text-center my-3 text-accent text-[18px]">∎</div>
