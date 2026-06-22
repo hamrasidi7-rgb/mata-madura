@@ -46,17 +46,17 @@
         </div>
 
         @if ($article->image_path)
-            <figure class="mb-2">
+            <figure class="mb-8">
                 <div class="w-full aspect-[16/10] rounded-2xl overflow-hidden bg-cream">
-                    <img src="{{ asset($article->image_path) }}" alt="{{ $article->title }}" class="w-full h-full object-cover">
+                    <img src="{{ asset($article->image_path) }}" alt="Ilustrasi artikel" class="w-full h-full object-cover">
                 </div>
-                @if ($article->image_caption)
-                    <figcaption class="text-[11.5px] italic text-muted mt-2.5 leading-snug">{{ $article->image_caption }}</figcaption>
-                @endif
+                <figcaption class="text-[11.5px] italic text-muted mt-2.5 leading-snug">
+                    {{ $article->image_caption ?: 'ILUSTRASI by ai' }}
+                </figcaption>
             </figure>
         @endif
 
-        <div class="article-body mt-[22px]">
+        <div class="article-body mt-8">
             {!! $article->body !!}
         </div>
 
