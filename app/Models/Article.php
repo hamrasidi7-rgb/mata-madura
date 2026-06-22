@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class Article extends Model
@@ -50,6 +51,15 @@ class Article extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function getAuthorPhotoUrlAttribute(): string
+    {
+        if ($this->author_photo) {
+            return Storage::url($this->author_photo);
+        }
+        $name = urlencode($this->author_name ?: $this->author ?: 'Redaksi');
+        return "https://ui-avatars.com/api/?name={$name}&size=128&background=9c6644&color=ffffff&bold=true&format=svg";
     }
 
     public function getStatusAttribute(): string

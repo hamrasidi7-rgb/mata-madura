@@ -144,6 +144,23 @@
                     </div>
 
                     <div>
+                        <label class="block text-[12px] text-ink-2 mb-1">Foto Penulis</label>
+                        @if($article->author_photo)
+                            <div class="flex items-center gap-3 mb-2">
+                                <img src="{{ $article->author_photo_url }}"
+                                     class="w-16 h-16 rounded-full object-cover border border-hair">
+                                <p class="text-[11px] text-muted">Foto saat ini</p>
+                            </div>
+                        @endif
+                        <input type="file" name="author_photo" accept="image/*"
+                               class="w-full text-[12px] text-ink-2 border border-hair rounded-lg px-2 py-1.5
+                                      file:mr-3 file:py-1 file:px-3 file:rounded-lg file:border-0
+                                      file:text-[12px] file:font-semibold file:bg-cream file:text-ink-2
+                                      hover:file:bg-hair cursor-pointer">
+                        <p class="text-[11px] text-muted mt-1">JPG/PNG, maks 2 MB. Kosongkan jika tidak ingin mengubah.</p>
+                    </div>
+
+                    <div>
                         <label class="block text-[12px] text-ink-2 mb-1">Estimasi baca (menit)</label>
                         <input type="number" name="read_minutes" value="{{ old('read_minutes', $article->read_minutes) }}" min="1" max="60"
                                class="w-full border border-hair rounded-lg px-3 py-2 text-[13px] text-ink focus:outline-none focus:ring-2 focus:ring-accent/40">

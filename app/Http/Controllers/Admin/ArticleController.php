@@ -56,11 +56,18 @@ class ArticleController extends Controller
             'is_trending'   => ['nullable', 'boolean'],
             'is_featured'   => ['nullable', 'boolean'],
             'image'         => ['nullable', 'image', 'max:2048'],
+            'author_photo'  => ['nullable', 'image', 'max:2048'],
             'status'        => ['required', 'in:draft,published'],
         ]);
 
         if ($request->hasFile('image')) {
             $data['image_path'] = $request->file('image')->store('articles', 'public');
+        }
+
+        if ($request->hasFile('author_photo')) {
+            $data['author_photo'] = $request->file('author_photo')->store('authors', 'public');
+        } else {
+            unset($data['author_photo']);
         }
 
         $data['published_at'] = $data['status'] === 'published' ? now() : null;
@@ -96,6 +103,7 @@ class ArticleController extends Controller
             'is_trending'   => ['nullable', 'boolean'],
             'is_featured'   => ['nullable', 'boolean'],
             'image'         => ['nullable', 'image', 'max:2048'],
+            'author_photo'  => ['nullable', 'image', 'max:2048'],
             'status'        => ['required', 'in:draft,published'],
         ]);
 
@@ -104,6 +112,15 @@ class ArticleController extends Controller
                 Storage::disk('public')->delete($article->image_path);
             }
             $data['image_path'] = $request->file('image')->store('articles', 'public');
+        }
+
+        if ($request->hasFile('author_photo')) {
+            if ($article->author_photo) {
+                Storage::disk('public')->delete($article->author_photo);
+            }
+            $data['author_photo'] = $request->file('author_photo')->store('authors', 'public');
+        } else {
+            unset($data['author_photo']);
         }
 
         // Published_at: set saat pertama kali publish, biarkan jika sudah ada
