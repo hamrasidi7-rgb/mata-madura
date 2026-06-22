@@ -50,6 +50,7 @@
 /* ── Article body ────────────────────────────────────────────── */
 .article-body p {
     @apply text-[16px] leading-[1.72] text-[#2a2620] mb-5;
+    max-width: 68ch;
 }
 
 /* Drop cap — huruf pertama paragraf pertama */
