@@ -61,7 +61,7 @@
                         @endif
                     </td>
                     <td class="px-4 py-3 text-ink-2 text-[12px]">
-                        {{ $article->author_name ?: 'Redaksi MataMadura' }}
+                        {{ $article->author_name ?: 'Redaksi mataGen' }}
                     </td>
                     <td class="px-4 py-3 text-ink-2">
                         {{ $article->category?->name ?? '—' }}

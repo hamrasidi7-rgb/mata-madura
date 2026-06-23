@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $article->title . ' — MataMadura AI')
+@section('title', $article->title . ' — mataGen AI')
 @section('meta_description', $article->deck)
 
 @section('content')
@@ -34,7 +34,7 @@
         @endif
 
         <div class="flex items-center gap-2.5 py-3.5 border-y border-hair mb-[22px]">
-            @php $byline = $article->author_name ?: ($article->author ?: 'Redaksi MataMadura'); @endphp
+            @php $byline = $article->author_name ?: ($article->author ?: 'Redaksi mataGen'); @endphp
             <div class="w-9 h-9 rounded-full bg-gradient-to-br from-warm to-accent text-white
                         font-bold text-[13px] flex items-center justify-center">
                 {{ \Illuminate\Support\Str::of($byline)->explode(' ')->map(fn($w) => mb_substr($w, 0, 1))->take(2)->implode('') }}

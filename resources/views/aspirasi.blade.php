@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Sampaikan Aspirasi — MataMadura')
+@section('title', 'Sampaikan Aspirasi — mataGen')
 
 @section('content')
 <div class="px-[22px] py-[36px] max-w-xl mx-auto">

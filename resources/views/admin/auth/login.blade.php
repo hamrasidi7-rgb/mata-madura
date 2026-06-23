@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login Admin — MataMadura AI</title>
+    <title>Login Admin — mataGen AI</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-cream min-h-screen flex items-center justify-center px-4">
@@ -13,7 +13,7 @@
     {{-- Logo --}}
     <div class="text-center mb-8">
         <a href="{{ route('home') }}" class="inline-block font-extrabold text-[22px] tracking-tight text-ink">
-            mata<span class="text-accent">madura</span>
+            mata<span class="text-accent">Gen</span>
             <span class="ml-1 text-[11px] border-2 border-accent rounded px-1 align-middle">AI</span>
         </a>
         <p class="text-[13px] text-muted mt-1">Panel Redaksi</p>
@@ -39,7 +39,7 @@
                 <label class="block text-[12px] font-semibold text-ink-2 mb-1">EMAIL</label>
                 <input type="email" name="email" value="{{ old('email') }}"
                        class="w-full border border-hair rounded-lg px-3 py-2.5 text-[14px] text-ink focus:outline-none focus:ring-2 focus:ring-accent/40"
-                       placeholder="admin@matamadura.id"
+                       placeholder="admin@matagen.com"
                        autofocus required>
             </div>
 
@@ -67,7 +67,7 @@
     </div>
 
     <p class="text-center text-[11px] text-muted mt-6">
-        © {{ date('Y') }} MataMadura AI
+        © {{ date('Y') }} mataGen AI
     </p>
 
 </div>

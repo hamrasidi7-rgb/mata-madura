@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Admin') — MataMadura AI</title>
+    <title>@yield('title', 'Admin') — mataGen AI</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
@@ -13,7 +13,7 @@
     {{-- Sidebar --}}
     <aside class="w-60 flex-none bg-white border-r border-hair p-5 hidden md:flex flex-col gap-6">
         <a href="{{ route('home') }}" class="font-extrabold text-[17px] tracking-tight">
-            mata<span class="text-accent">madura</span>
+            mata<span class="text-accent">Gen</span>
             <span class="ml-1 text-[10px] border-2 border-accent rounded px-1">AI</span>
         </a>
 

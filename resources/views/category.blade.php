@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', $category->name . ' — MataMadura AI')
-@section('meta_description', $category->description ?: 'Baca berita kategori ' . $category->name . ' di MataMadura AI.')
+@section('title', $category->name . ' — mataGen AI')
+@section('meta_description', $category->description ?: 'Baca berita kategori ' . $category->name . ' di mataGen AI.')
 
 @section('content')
 

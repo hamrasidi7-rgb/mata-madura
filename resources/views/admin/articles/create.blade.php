@@ -56,7 +56,7 @@
                         <label class="block text-[11px] font-semibold text-ink-2 mb-1">PENULIS</label>
                         <input type="text" name="author_name" value="{{ old('author_name') }}"
                                class="w-full text-[13px] text-ink border border-hair rounded-lg px-2 py-1 focus:outline-none focus:ring-2 focus:ring-accent/40"
-                               placeholder="Redaksi MataMadura">
+                               placeholder="Redaksi mataGen">
                     </div>
 
                     <div class="mt-3 pt-3 border-t border-hair">
