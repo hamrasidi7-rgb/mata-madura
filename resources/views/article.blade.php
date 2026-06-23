@@ -22,7 +22,7 @@
             <x-icon name="arrow-left" class="w-[17px] h-[17px]" /> Kembali
         </a>
         <span class="font-extrabold text-[13px] tracking-tight text-ink">
-            mata<span class="text-accent">madura</span>
+            mata<span class="text-accent">Gen</span>
         </span>
     </header>
 

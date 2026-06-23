@@ -10,7 +10,7 @@
 
         <a href="{{ route('home') }}" class="flex items-center gap-2">
             {{-- Ganti dengan logo asli di public/images/wordmark.png --}}
-            <span class="font-extrabold text-[23px] tracking-tight text-ink">mata<span class="text-accent">madura</span></span>
+            <span class="font-extrabold text-[23px] tracking-tight text-ink">mata<span class="text-accent">Gen</span></span>
             <span class="inline-flex items-center justify-center px-1 py-px rounded border-[1.5px] border-accent
                          font-extrabold text-[9px] leading-none text-ink">AI</span>
         </a>

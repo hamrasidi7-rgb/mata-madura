@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'mataGen AI — Portal Berita Madura')
+@section('title', 'mataGen AI — Portal AI Berbasis Data & Berita')
 
 @section('content')
 
