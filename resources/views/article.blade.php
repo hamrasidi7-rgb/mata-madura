@@ -3,6 +3,15 @@
 @section('title', $article->title . ' — mataGen AI')
 @section('meta_description', $article->deck)
 
+@php
+    $articleOgImage = $article->image_path
+        ? asset('storage/' . ltrim($article->image_path, '/'))
+        : asset('images/og-image.jpg');
+@endphp
+@section('og_title',       $article->title . ' — mataGen AI')
+@section('og_description', $article->deck ?: 'Baca artikel terbaru di mataGen AI.')
+@section('og_image',       $articleOgImage)
+
 @section('content')
 
     {{-- Topbar artikel --}}
